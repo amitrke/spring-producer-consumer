@@ -1,9 +1,11 @@
 FROM gradle:jdk17-jammy
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY . .
+# COPY . .
 
-RUN gradle build
+# RUN gradle build
 
-CMD ["gradle", "bootRun"]
+# CMD ["gradle", "bootRun"]
+
+CMD tail -f /dev/null
