@@ -1,0 +1,4 @@
+{
+  "name": "consumer",
+  "image": "gradle:jdk17-jammy"
+}

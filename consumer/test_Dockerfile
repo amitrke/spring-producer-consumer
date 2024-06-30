@@ -1,0 +1,8 @@
+FROM gradle:jdk17-jammy
+WORKDIR /app
+COPY . .
+
+RUN gradle build -x test
+
+CMD ["gradle", "bootRun"]
+# CMD tail -f /dev/null
