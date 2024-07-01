@@ -1,7 +1,7 @@
 {
 	"name": "dev",
 	"dockerComposeFile": [
-		"docker-compose-vscode.yaml"
+		".vscode/docker-compose-vscode.yaml"
 	],
 	"service": "consumer",
 	"workspaceFolder": "/root/workspace",
@@ -14,7 +14,6 @@
                 "vscjava.vscode-java-test",
                 "vscjava.vscode-java-dependency",
                 "jeppeandersen.vscode-kafka",
-                "ms-azuretools.vscode-docker",
                 "eamodio.gitlens",
                 "GitHub.copilot"
             ]

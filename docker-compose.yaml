@@ -65,6 +65,8 @@ services:
     depends_on:
       - broker1
       - schema-registry
+    ports:
+      - "8080:8080"
   
   consumer:
     build: consumer

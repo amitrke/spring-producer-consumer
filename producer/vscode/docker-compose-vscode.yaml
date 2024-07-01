@@ -60,19 +60,19 @@ services:
       PORT: 9021
 
   producer:
-    build: ../producer
-    depends_on:
-      - broker1
-      - schema-registry
-  
-  consumer:
     build: .
     depends_on:
+      - consumer
+    volumes:
+      - ..:/root/workspace
+      - vs-server:/root/.vscode-server/extensions
+  
+  consumer:
+    build: ../../consumer
+    depends_on:
       - broker1
       - schema-registry
-    volumes:
-      - .:/root/workspace
-      - vs-server:/root/.vscode-server/extensions
+    
 
 volumes:
   vs-server: {}
