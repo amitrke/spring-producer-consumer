@@ -2,6 +2,8 @@ package com.example.producer.rest;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +18,9 @@ public class StudentController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    // @GetMapping("/get")
+    @Autowired
+	private StreamBridge streamBridge;
+
     @GetMapping
     public Student get(
         @RequestParam(value = "name", defaultValue = "John") String name,
@@ -33,8 +37,7 @@ public class StudentController {
     public Student create(
         @RequestBody Student student
         ) {
-        // Logic to create a new student
-        // ...
+        streamBridge.send("process-in-0", student);
         return student;
     }
 }
